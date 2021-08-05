@@ -1,6 +1,6 @@
 {
    "manifest_version": 2,
-   "name": "Auto Admit",
+   "name": "Auto Admit test",
    "version": "0.3",
    "content_scripts": [
      {
@@ -10,7 +10,11 @@
        "js": ["content.js"]
      }
    ],
+  "permissions": [
+      "storage"
+  ],
    "browser_action": {
-     "default_icon": "icon.png"
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"  
    }
  }
