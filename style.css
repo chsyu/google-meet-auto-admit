@@ -1,0 +1,28 @@
+body {
+   width: 200px;
+}
+
+.header {
+   text-align: center;
+   font-weight: 200;
+}
+
+.container {
+   margin-top:0.5rem;
+   margin-bottom: 0.5rem;
+   width: 6rem;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.select {
+   font-size: 1.2rem;
+   margin-bottom: 1rem;
+}
+
+.option {
+   font-size: 1.2rem;
+   font-weight: 100 !important;
+   margin-top: 0.5rem;
+   padding: 0.2rem;
+}

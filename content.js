@@ -1,8 +1,11 @@
 // content.js
-    document.querySelector("#sel_course").innerHTML = "Hello World";
+    if(!!document.querySelector("#sel_course")) 
+        document.querySelector("#sel_course").innerHTML = "Hello World";
 
-// let select = 1;
-const nameList = ["數位系-俞齊山", ""];
+const nameList1 = ["數位系-俞齊山", "1"];
+const nameList2 = ["數位系-俞齊山", "2"];
+const nameList3 = ["數位系-俞齊山", "3"];
+let nameList = nameList1;
 
 function autoAdmit() {
 
@@ -37,24 +40,35 @@ function autoAdmit() {
     }
 }
 
-function selectCourse(e) {
-  const course = e.target.value;
-  chrome.storage.sync.set({ course }, () => {
-    console.log("set");
-    //string or array of string or object keys
-    chrome.storage.sync.get("course", obj => {
-      document.querySelector('#sel_course').innerHTML = obj["course"];
-    });
-  });
+function setNameList(course) {
+    if(course === 'guo8yi')
+        nameList = nameList1;
+    else if(course === 'guo8mei')
+        nameList = nameList2;
+    else if(course === 'guo8zhen')
+        nameList = nameList3;
+    console.log(nameList)
 }
 
-document.querySelector("#course").addEventListener("change", selectCourse);
+function selectCourse(e) {
+  const course = e.target.value;
+  setNameList(course);
+  chrome.storage.sync.set({ course: course });
+}
 
-window.onload = function() {
-	chrome.storage.sync.get("active", (obj) => {
-    const active_course = obj.hasOwnProperty("course") ? obj["course"] : 'guo8yi';
+if (!!document.querySelector("#course"))
+    document
+    .querySelector("#course")
+    .addEventListener("change", selectCourse);
+
+chrome.storage.sync.get("course", (obj) => {
+    const active_course = obj["course"];
+    if(!active_course)
+        active_course = "guo8mei";
+    setNameList(active_course);
     const courses = document.querySelector("#course");
-    courses.value = active_course;
-    setInterval(autoAdmit, 1000);
-  });
-};
+    if(!!courses)
+        courses.value = active_course;
+});
+
+setInterval(autoAdmit, 1000);

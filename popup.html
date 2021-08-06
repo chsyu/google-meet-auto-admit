@@ -5,22 +5,18 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Auto Admit</title>
+   <link rel="stylesheet" href="style.css">
 </head>
-<body style="width: 200px;">
-   <h1 style="text-align: center; font-weight: 200;">選擇上課班級</h1>
-   <div style="margin-top:0.5rem; margin-bottom: 0.5rem; width: 6rem; margin-left: auto; margin-right: auto; ">
-      <select 
-         id="course" 
-         style="font-size: 1.2rem;"
-      >
-         <option style="font-size: 1.2rem; font-weight: 100; margin-top: 0.5rem;" value="guo8yi">國八義</option>
-         <option style="font-size: 1.2rem; font-weight: 100; margin-top: 0.5rem;" value="guo8mei">國八美</option>
-         <option style="font-size: 1.2rem; font-weight: 100; margin-top: 0.5rem;" value="guo8zhen">國八真</option>
+<body>
+   <h1 class="header">選擇上課班級</h1>
+   <div class="container">
+      <select id="course" class="select" >
+         <option class="option" value="guo8yi">國八義</option>
+         <option class="option" value="guo8mei">國八美</option>
+         <option class="option" value="guo8zhen">國八真</option>
       </select>
-      <div id="sel_course">Hello</div>
    </div>
 
-   
    <script src="content.js"></script>
 </body>
 </html>
